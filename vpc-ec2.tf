@@ -1,3 +1,4 @@
+# add your key name in line no. 94.
 terraform {
   required_providers {
     aws = {
@@ -14,6 +15,8 @@ provider "aws" {
   region  = "us-east-1"
 }
 
+#variables
+
 variable "project" {
   type    = string
   default = "Netflix"
@@ -21,7 +24,7 @@ variable "project" {
 
 variable "owner" {
   type    = string
-  default = "Pardhuman ji"
+  default = "Serry"
 }
 
 variable "env" {
@@ -88,7 +91,7 @@ resource "aws_route_table_association" "public_1_rt_a" {
 resource "aws_instance" "web_instance" {
   ami           = data.aws_ami.latest_amazon_linux.id
   instance_type = "t2.micro"
-  key_name      = "sahil"
+  key_name      = "your-key-name"     #add your key name 
 
   subnet_id                   = aws_subnet.some_public_subnet.id
   associate_public_ip_address = true
